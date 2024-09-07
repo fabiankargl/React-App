@@ -55,7 +55,6 @@ export default function Counter() {
       });
     }
   };
-  console.log(counterState);
 
   return (
     <>

@@ -17,9 +17,9 @@ export default function Counter() {
   return (
     <>
       <div className="container">
-        <button onClick={handleDecrease}>-</button>
+        <button onClick={handleDecrease} disabled={counter <= -10 ? true: false}>-</button>
         <span>{counter}</span>
-        <button onClick={handleIncrease}>+</button>
+        <button onClick={handleIncrease} disabled={counter >= 10 ? true: false}>+</button>
       </div>
       <div className="container">
         <button onClick={resetCounter}>Reset</button>

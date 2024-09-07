@@ -1,47 +1,79 @@
 import { useState } from "react";
 
 export default function Counter() {
-  const [counter, setCounter] = useState(0);
-  const [counterLimit, setCounterLimit] = useState(0);
-  const [inputValue, setInputValue] = useState("");
+  const [counterState, setCounterState] = useState({
+    counter: 0,
+    counterLimit: 0,
+    inputValue: "",
+  });
 
   const handleIncrease = () => {
-    setCounter(counter + 1);
+    setCounterState((prevState) => {
+      return {
+        ...prevState,
+        counter: prevState.counter + 1,
+      };
+    });
   };
 
   const handleDecrease = () => {
-    setCounter(counter - 1);
+    setCounterState((prevState) => {
+      return {
+        ...prevState,
+        counter: prevState.counter - 1,
+      };
+    });
   };
 
   const resetCounter = () => {
-    setCounter(0);
-    setInputValue("")
+    setCounterState((prevState) => {
+      return {
+        ...prevState,
+        counter: 0,
+        counterLimit: 0,
+      };
+    });
   };
 
   const handleChange = (event) => {
-    setCounterLimit(Number(event.target.value));
-    setInputValue(event.target.value);
+    setCounterState((prevState) => {
+      return {
+        ...prevState,
+        counterLimit: Number(event.target.value),
+        inputValue: event.target.value,
+      };
+    });
   };
 
   const handleEnterPress = (event) => {
     if (event.key === "Enter") {
-        setInputValue("");
+      setCounterState((prevState) => {
+        return {
+          ...prevState,
+          inputValue: "",
+        };
+      });
     }
   };
+  console.log(counterState);
 
   return (
     <>
       <div className="container">
         <button
           onClick={handleDecrease}
-          disabled={counter <= -counterLimit ? true : false}
+          disabled={
+            counterState.counter <= -counterState.counterLimit ? true : false
+          }
         >
           -
         </button>
-        <span>{counter}</span>
+        <span>{counterState.counter}</span>
         <button
           onClick={handleIncrease}
-          disabled={counter >= counterLimit ? true : false}
+          disabled={
+            counterState.counter >= counterState.counterLimit ? true : false
+          }
         >
           +
         </button>
@@ -51,7 +83,7 @@ export default function Counter() {
         <label htmlFor="text">Counter limit:</label>
         <input
           type="text"
-          value={inputValue}
+          value={counterState.inputValue}
           onChange={(event) => handleChange(event)}
           onKeyDown={handleEnterPress}
         />

@@ -5,22 +5,33 @@ export default function Counter() {
     counter: 0,
     counterLimit: 0,
     inputValue: "",
+    counterSteps: 1,
   });
 
   const handleIncrease = () => {
     setCounterState((prevState) => {
+      const { counter, counterSteps, counterLimit } = prevState;
+      const newCounter =
+        counter + counterSteps < counterLimit
+          ? counter + counterSteps
+          : counterLimit;
       return {
         ...prevState,
-        counter: prevState.counter + 1,
+        counter: newCounter,
       };
     });
   };
 
   const handleDecrease = () => {
     setCounterState((prevState) => {
+      const { counter, counterSteps, counterLimit } = prevState;
+      const newCounter =
+        counter - counterSteps > -counterLimit
+          ? counter - counterSteps
+          : -counterLimit;
       return {
         ...prevState,
-        counter: prevState.counter - 1,
+        counter: newCounter,
       };
     });
   };
@@ -56,8 +67,20 @@ export default function Counter() {
     }
   };
 
+  const handleSteps = (event) => {
+    setCounterState((prevState) => {
+      return {
+        ...prevState,
+        counterSteps: Number(event.target.value),
+      };
+    });
+  };
+
   return (
     <>
+    <div className="container">
+        <p>Current limit: {counterState.counterLimit}</p>
+    </div>
       <div className="container">
         <button
           onClick={handleDecrease}
@@ -79,13 +102,24 @@ export default function Counter() {
       </div>
       <div className="container">
         <button onClick={resetCounter}>Reset</button>
-        <label htmlFor="text">Counter limit:</label>
+        <label htmlFor="counterLimit">Counter limit:</label>
         <input
           type="text"
+          name="counterLimit"
           value={counterState.inputValue}
           onChange={(event) => handleChange(event)}
           onKeyDown={handleEnterPress}
         />
+        <label htmlFor="counterSteps">Counter steps:</label>
+        <input
+          type="range"
+          name="counterSteps"
+          min="1"
+          max="10"
+          value={counterState.counterSteps}
+          onChange={(event) => handleSteps(event)}
+        ></input>
+        {counterState.counterSteps}
       </div>
     </>
   );

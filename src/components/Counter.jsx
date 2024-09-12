@@ -43,9 +43,10 @@ export default function Counter() {
   };
 
   return (
-    <>
+    <div className="flex flex-col items-center bg-slate-300 m-4 rounded-3xl p-4 w-1/2 mx-auto">
+      <h1 className="text-2xl font-bold text-blue-600">Counter</h1>
       <div className="flex flex-col items-center my-5">
-        <label htmlFor="counterSteps" className="text-lg mb-2">
+        <label htmlFor="counterSteps" className="text-sm mb-2">
           Counter steps:
         </label>
         <input
@@ -83,6 +84,6 @@ export default function Counter() {
           Reset
         </button>
       </div>
-    </>
+    </div>
   );
 }

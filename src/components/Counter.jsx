@@ -44,8 +44,10 @@ export default function Counter() {
 
   return (
     <>
-      <div className="container">
-        <label htmlFor="counterSteps">Counter steps:</label>
+      <div className="flex flex-col items-center my-5">
+        <label htmlFor="counterSteps" className="text-lg mb-2">
+          Counter steps:
+        </label>
         <input
           type="range"
           name="counterSteps"
@@ -53,28 +55,33 @@ export default function Counter() {
           max="10"
           value={counterState.counterSteps}
           onChange={(event) => handleSteps(event)}
-        ></input>
-        {counterState.counterSteps}
+          className=" my-2"
+        />
       </div>
-      <div className="container">
+      <div className="flex items-center justify-center my-5">
         <button
           onClick={handleDecrease}
-          disabled={
-            counterState.counter <= -counterState.counterLimit ? true : false
-          }
+          disabled={counterState.counter <= -counterState.counterLimit}
+          className="text-sm px-2 py-1 mx-1 bg-blue-500 text-white rounded disabled:bg-gray-300"
         >
           -
         </button>
-        <span>{counterState.counter}</span>
+        <span className="text-2xl mx-1">{counterState.counter}</span>
         <button
           onClick={handleIncrease}
-          disabled={
-            counterState.counter >= counterState.counterLimit ? true : false
-          }
+          disabled={counterState.counter >= counterState.counterLimit}
+          className="text-sm px-2 py-1 mx-1 bg-blue-500 text-white rounded disabled:bg-gray-300"
         >
           +
         </button>
-        <button onClick={resetCounter}>Reset</button>
+      </div>
+      <div className="flex items-center flex-col">
+        <button
+          onClick={resetCounter}
+          className="text-sm mx-1 py-1 px-2 bg-slate-600 rounded text-yellow-50"
+        >
+          Reset
+        </button>
       </div>
     </>
   );

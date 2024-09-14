@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Container } from "./UI/Container";
 
 export default function ToDoList() {
   const [toDoList, setToDoList] = useState([]);
@@ -45,7 +46,7 @@ export default function ToDoList() {
   }, [toDoList, loaded]);
 
   return (
-    <div className="flex flex-col items-center bg-slate-300 m-4 rounded-3xl p-4 w-1/2 mx-auto">
+    <Container>
       <h1 className="text-2xl font-bold text-blue-600">To-Do-List</h1>
       <div className="flex m-2 justify-between space-x-3">
         <label htmlFor="todo" className="text-lg">
@@ -82,6 +83,6 @@ export default function ToDoList() {
           );
         })}
       </ul>
-    </div>
+    </Container>
   );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Container } from "./UI/Container";
 
 export default function Counter() {
   const [counterState, setCounterState] = useState({
@@ -57,7 +58,7 @@ export default function Counter() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-slate-300 m-4 rounded-3xl p-4 w-1/2 mx-auto">
+    <Container>
       <h1 className="text-2xl font-bold text-blue-600">Counter</h1>
       <div className="flex items-center justify-center my-5">
         <button
@@ -110,6 +111,6 @@ export default function Counter() {
           <span className="text-lg ml-4">{counterState.counterSteps}</span>
         </div>
       )}
-    </div>
+    </Container>
   );
 }

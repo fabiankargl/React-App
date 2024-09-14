@@ -1,11 +1,10 @@
-import Counter from "./components/Counter";
-import ToDoList from "./components/ToDoList";
+import { Wrapper } from "./components/UI/Wrapper";
 
 function App() {
   return (
     <>
-      <Counter />
-      <ToDoList />
+      <Wrapper label={"Counter"} />
+      <Wrapper label={"ToDo List"} />
     </>
   );
 }

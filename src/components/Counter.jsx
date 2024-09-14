@@ -63,13 +63,13 @@ export default function Counter() {
     <Container>
       <h1 className="text-2xl font-bold text-blue-600">Counter</h1>
       <div className="flex items-center justify-center my-5">
-        <Button onClick={handleDecrease} testId={"btn_counter_minus"}>
+        <Button onClick={handleDecrease} data-testid={"btn_counter_minus"}>
           -
         </Button>
-        <span className="text-2xl mx-1" testId={"counter_output"}>
+        <span className="text-2xl mx-1" data-testid={"counter_output"}>
           {counterState.counter}
         </span>
-        <Button onClick={handleIncrease} testId={"btn_counter-plus"}>
+        <Button onClick={handleIncrease} data-testid={"btn_counter_plus"}>
           +
         </Button>
       </div>
@@ -77,7 +77,7 @@ export default function Counter() {
         <button
           onClick={resetCounter}
           className="text-sm mx-1 py-1 px-2 bg-slate-600 rounded text-yellow-50"
-          testId={"btn_counter_reset"}
+          data-testid={"btn_counter_reset"}
         >
           Reset
         </button>
@@ -86,13 +86,13 @@ export default function Counter() {
           id="steps"
           className="form-checkbox h-5 w-5 text-blue-600 mx-2"
           onClick={handleStepsOnOff}
-          testId={"counter_checkbox"}
+          data-testid={"counter_checkbox"}
         />
-        <Label forHtml={"steps"} testId={"counter_steps"}>Counter steps</Label>
+        <Label forHtml={"steps"} data-testid={"counter_steps"}>Counter steps</Label>
       </div>
       {counterState.stepsOnOff && (
         <div className="flex items-center  m-5">
-          <Label forHtml={"counterSteps"} className="mr-4" testId={"counter_steps_two"}>
+          <Label forHtml={"counterSteps"} className="mr-4" data-testid={"counter_steps_two"}>
             Steps:
           </Label>
           <input
@@ -103,9 +103,9 @@ export default function Counter() {
             value={counterState.counterSteps}
             onChange={(event) => handleSteps(event)}
             className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg"
-            testId={"counter_steps_slider"}
+            data-testid={"counter_steps_slider"}
           />
-          <span className="text-lg ml-4" testId={"counter_steps_output"}>{counterState.counterSteps}</span>
+          <span className="text-lg ml-4" data-testid={"counter_steps_output"}>{counterState.counterSteps}</span>
         </div>
       )}
     </Container>

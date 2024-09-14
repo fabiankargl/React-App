@@ -1,9 +1,8 @@
-export const Label = ({ children, forHtml, className, testId }) => {
+export const Label = ({ children, forHtml, className }) => {
     return (
       <label
         htmlFor={forHtml}
         className={`text-lg p-2 ${className}`}
-        testId={testId}
       >
         {children}
       </label>

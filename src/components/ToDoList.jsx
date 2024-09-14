@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container } from "./UI/Container";
 import { Button } from "./UI/Button";
+import { Label } from "./UI/Label";
 
 export default function ToDoList() {
   const [toDoList, setToDoList] = useState([]);
@@ -50,14 +51,13 @@ export default function ToDoList() {
     <Container>
       <h1 className="text-2xl font-bold text-blue-600">To-Do-List</h1>
       <div className="flex m-2 justify-between space-x-3">
-        <label htmlFor="todo" className="text-lg">
-          Add ToDo:
-        </label>
+        <Label forHtml={"todo"}>Add ToDo:</Label>
         <input
           type="text"
           id="todo"
           value={toDo}
           onChange={(event) => handleInput(event)}
+          className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <Button onClick={() => addToDo(toDo)}>Add</Button>
       </div>

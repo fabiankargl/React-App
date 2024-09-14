@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container } from "./UI/Container";
 import { Button } from "./UI/Button";
+import { Label } from "./UI/Label";
 
 export default function Counter() {
   const [counterState, setCounterState] = useState({
@@ -79,15 +80,11 @@ export default function Counter() {
           className="form-checkbox h-5 w-5 text-blue-600 mx-2"
           onClick={handleStepsOnOff}
         />
-        <label htmlFor="steps" className="text-lg">
-          Counter steps
-        </label>
+        <Label forHtml={"steps"}>Counter steps</Label>
       </div>
       {counterState.stepsOnOff && (
         <div className="flex items-center  m-5">
-          <label htmlFor="counterSteps" className="text-lg text-gray-700 mr-4">
-            Steps:
-          </label>
+          <Label forHtml={"counterSteps"} className="mr-4">Steps:</Label>
           <input
             type="range"
             name="counterSteps"

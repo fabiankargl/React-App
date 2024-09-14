@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Container } from "./UI/Container";
+import { Button } from "./UI/Button";
+import { Label } from "./UI/Label";
 
 export default function Counter() {
   const [counterState, setCounterState] = useState({
@@ -57,24 +60,12 @@ export default function Counter() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-slate-300 m-4 rounded-3xl p-4 w-1/2 mx-auto">
+    <Container>
       <h1 className="text-2xl font-bold text-blue-600">Counter</h1>
       <div className="flex items-center justify-center my-5">
-        <button
-          onClick={handleDecrease}
-          disabled={counterState.counter <= -counterState.counterLimit}
-          className="text-sm px-2 py-1 mx-1 bg-blue-500 text-white rounded disabled:bg-gray-300"
-        >
-          -
-        </button>
+        <Button onClick={handleDecrease}>-</Button>
         <span className="text-2xl mx-1">{counterState.counter}</span>
-        <button
-          onClick={handleIncrease}
-          disabled={counterState.counter >= counterState.counterLimit}
-          className="text-sm px-2 py-1 mx-1 bg-blue-500 text-white rounded disabled:bg-gray-300"
-        >
-          +
-        </button>
+        <Button onClick={handleIncrease}>+</Button>
       </div>
       <div className="flex items-center">
         <button
@@ -89,15 +80,11 @@ export default function Counter() {
           className="form-checkbox h-5 w-5 text-blue-600 mx-2"
           onClick={handleStepsOnOff}
         />
-        <label htmlFor="steps" className="text-lg">
-          Counter steps
-        </label>
+        <Label forHtml={"steps"}>Counter steps</Label>
       </div>
       {counterState.stepsOnOff && (
         <div className="flex items-center  m-5">
-          <label htmlFor="counterSteps" className="text-lg text-gray-700 mr-4">
-            Steps:
-          </label>
+          <Label forHtml={"counterSteps"} className="mr-4">Steps:</Label>
           <input
             type="range"
             name="counterSteps"
@@ -110,6 +97,6 @@ export default function Counter() {
           <span className="text-lg ml-4">{counterState.counterSteps}</span>
         </div>
       )}
-    </div>
+    </Container>
   );
 }

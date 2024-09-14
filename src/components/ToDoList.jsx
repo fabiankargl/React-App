@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container } from "./UI/Container";
+import { Button } from "./UI/Button";
 
 export default function ToDoList() {
   const [toDoList, setToDoList] = useState([]);
@@ -36,7 +37,7 @@ export default function ToDoList() {
     if (storedToDoList) {
       setToDoList(JSON.parse(storedToDoList));
     }
-    setLoaded(true); 
+    setLoaded(true);
   }, []);
 
   useEffect(() => {
@@ -58,12 +59,7 @@ export default function ToDoList() {
           value={toDo}
           onChange={(event) => handleInput(event)}
         />
-        <button
-          className="text-sm px-2 py-1 mx-1 bg-blue-500 text-white rounded disabled:bg-gray-300"
-          onClick={() => addToDo(toDo)}
-        >
-          Add
-        </button>
+        <Button onClick={() => addToDo(toDo)}>Add</Button>
       </div>
       <ul className="m-2 p-2 w-1/2">
         {toDoList.map((todo) => {

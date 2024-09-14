@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container } from "./UI/Container";
+import { Button } from "./UI/Button";
 
 export default function Counter() {
   const [counterState, setCounterState] = useState({
@@ -61,21 +62,9 @@ export default function Counter() {
     <Container>
       <h1 className="text-2xl font-bold text-blue-600">Counter</h1>
       <div className="flex items-center justify-center my-5">
-        <button
-          onClick={handleDecrease}
-          disabled={counterState.counter <= -counterState.counterLimit}
-          className="text-sm px-2 py-1 mx-1 bg-blue-500 text-white rounded disabled:bg-gray-300"
-        >
-          -
-        </button>
+        <Button onClick={handleDecrease}>-</Button>
         <span className="text-2xl mx-1">{counterState.counter}</span>
-        <button
-          onClick={handleIncrease}
-          disabled={counterState.counter >= counterState.counterLimit}
-          className="text-sm px-2 py-1 mx-1 bg-blue-500 text-white rounded disabled:bg-gray-300"
-        >
-          +
-        </button>
+        <Button onClick={handleIncrease}>+</Button>
       </div>
       <div className="flex items-center">
         <button

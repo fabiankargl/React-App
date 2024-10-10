@@ -1,10 +1,9 @@
-import { Wrapper } from "./shared/components/Wrapper";
+import { MainMenu } from "./main/components/Menu"
 
-function App() {
+const App = () => {
   return (
     <>
-      <Wrapper label={"Counter"} />
-      <Wrapper label={"ToDo List"} />
+      <MainMenu />
     </>
   );
 }

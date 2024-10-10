@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Container } from "./Container";
-import { Modal } from "../Modal";
-import Counter from "../Counter";
-import ToDoList from "../ToDoList";
+import { Modal } from "../../react-app/components/Modal";
+import Counter from "../../react-app/components/Counter";
+import ToDoList from "../../react-app/components/ToDoList";
 const componentMap: { [key: string]: JSX.Element } = {
   "Counter": <Counter />,
   "ToDo List": <ToDoList />,

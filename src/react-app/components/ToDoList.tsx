@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Container } from "../components/UI/Container";
-import { Label } from "../components/UI/Label";
-import { Button } from "../components/UI/Button";
+import { Container } from "../../shared/components/Container";
+import { Label } from "../../shared/components/UI/LabelV1/Label";
+import { Button } from "../../shared/components/UI/ButtonV1/Button";
 
 interface ToDo {
   id: string;

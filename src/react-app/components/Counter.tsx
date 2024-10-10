@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Container } from "./UI/Container";
-import { Button } from "./UI/Button";
-import { Label } from "./UI/Label";
+import { Container } from "../../shared/components/Container";
+import { Button } from "../../shared/components/UI/ButtonV1/Button";
+import { Label } from "../../shared/components/UI/LabelV1/Label";
 
 export default function Counter() {
   const [counterState, setCounterState] = useState({

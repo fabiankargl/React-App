@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { act } from 'react';
-import Counter from '../components/Counter';
+import Counter from '../react-app/components/Counter';
 
 test('Render start items', () => {
     render(<Counter />);

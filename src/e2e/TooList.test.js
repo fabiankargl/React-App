@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { act } from 'react';
-import ToDoList from '../components/ToDoList';
+import ToDoList from '../react-app/components/ToDoList';
 
 test('Render start items', () => {
     render(<ToDoList />);

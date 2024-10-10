@@ -1,14 +1,18 @@
-import  { useState } from 'react';
+import { useState } from "react";
 import { Container } from "./Container";
-import { Modal } from '../Modal';
-import Counter from '../Counter';
-import ToDoList from '../ToDoList'
-const componentMap = {
-  'Counter': <Counter />,
-  'ToDo List': <ToDoList />,
+import { Modal } from "../Modal";
+import Counter from "../Counter";
+import ToDoList from "../ToDoList";
+const componentMap: { [key: string]: JSX.Element } = {
+  "Counter": <Counter />,
+  "ToDo List": <ToDoList />,
 };
 
-export const Wrapper = ({ label }) => {
+interface WrapperProps {
+  label: string;
+}
+
+export const Wrapper = ({ label }: WrapperProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);

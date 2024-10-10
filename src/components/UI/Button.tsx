@@ -1,4 +1,11 @@
-export const Button = ({ children, onClick, ...props }) => {
+import { ReactNode } from "react";
+
+interface ButtonProps {
+  onClick: () => void;
+  children: ReactNode;
+}
+
+export const Button = ({ children, onClick, ...props }: ButtonProps) => {
   return (
     <button
       onClick={onClick}

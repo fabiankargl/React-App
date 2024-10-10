@@ -41,7 +41,7 @@ export default function Counter() {
     });
   };
 
-  const handleSteps = (event) => {
+  const handleSteps = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCounterState((prevState) => {
       return {
         ...prevState,

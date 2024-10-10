@@ -1,32 +1,30 @@
 import { useState, useEffect } from "react";
-import { Container } from "./UI/Container";
-import { Button } from "./UI/Button";
-import { Label } from "./UI/Label";
+import { Container } from "../components/UI/Container";
+import { Label } from "../components/UI/Label";
+import { Button } from "../components/UI/Button";
 
-export default function ToDoList() {
-  const [toDoList, setToDoList] = useState([]);
-  const [toDo, setToDo] = useState("");
-  const [loaded, setLoaded] = useState(false);
+interface ToDo {
+  id: string;
+  toDo: string;
+}
 
-  const handleInput = (event) => {
+const ToDoList = () => {
+  const [toDo, setToDo] = useState<string>("");
+  const [toDoList, setToDoList] = useState<ToDo[]>([]);
+  const [loaded, setLoaded] = useState<boolean>(false);
+
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setToDo(event.target.value);
   };
 
-  const addToDo = (toDo) => {
+  const addToDo = (toDo: string) => {
     if (toDo.trim() === "") return;
-    setToDoList((prevToDoList) => {
-      return [
-        ...prevToDoList,
-        {
-          id: Math.random(), // change later for good id
-          toDo: toDo,
-        },
-      ];
-    });
+    const newToDo = { id: Date.now().toString(), toDo };
+    setToDoList((prevToDoList) => [...prevToDoList, newToDo]);
     setToDo("");
   };
 
-  const deleteToDo = (id) => {
+  const deleteToDo = (id: string) => {
     setToDoList((prevToDoList) => {
       const filteredToDoList = prevToDoList.filter((toDo) => toDo.id !== id);
       return filteredToDoList;
@@ -56,7 +54,7 @@ export default function ToDoList() {
           type="text"
           id="todo"
           value={toDo}
-          onChange={(event) => handleInput(event)}
+          onChange={handleInput}
           className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           data-testid={"todo_input"}
         />
@@ -67,7 +65,7 @@ export default function ToDoList() {
           return (
             <li
               key={todo.id}
-              className="flex justify-between items-center p-2 border border-gray-400 rounded-lg text-stone-800 text-xl mt-1  w-full"
+              className="flex justify-between items-center p-2 border border-gray-400 rounded-lg text-stone-800 text-xl mt-1 w-full"
             >
               <span data-testid={"todo_element"}>{todo.toDo}</span>
               <button
@@ -83,4 +81,6 @@ export default function ToDoList() {
       </ul>
     </Container>
   );
-}
+};
+
+export default ToDoList;

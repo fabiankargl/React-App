@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 interface LabelProps {
   children: ReactNode;
   forHtml: string;
-  className: string;
+  className?: string;
 }
 
 export const Label = ({ children, forHtml, className }: LabelProps) => {

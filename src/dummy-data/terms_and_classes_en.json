@@ -1,0 +1,42 @@
+{
+    "classes": [
+        {
+            "id": 0,
+            "name": "Mathematics 10A",
+            "teacher": "Mr. M\u00fcller",
+            "events": [
+                {
+                    "title": "Mathematics Test",
+                    "date": "2024-10-20",
+                    "time": "09:00",
+                    "description": "Test on algebra and geometry."
+                },
+                {
+                    "title": "Homework Submission",
+                    "date": "2024-10-25",
+                    "time": "15:00",
+                    "description": "Submission of homework for chapter 5."
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Biology 10A",
+            "teacher": "Ms. Schmidt",
+            "events": [
+                {
+                    "title": "Biology Project Presentation",
+                    "date": "2024-10-22",
+                    "time": "11:00",
+                    "description": "Presentation of group projects."
+                },
+                {
+                    "title": "Test on Human Anatomy",
+                    "date": "2024-10-29",
+                    "time": "10:00",
+                    "description": "Test on human anatomy."
+                }
+            ]
+        }
+    ]
+}

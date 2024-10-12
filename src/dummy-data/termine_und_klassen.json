@@ -1,0 +1,40 @@
+{
+    "klassen": [
+        {
+            "name": "Mathematik 10A",
+            "lehrer": "Herr M\u00fcller",
+            "termine": [
+                {
+                    "titel": "Mathematik-Test",
+                    "datum": "2024-10-20",
+                    "zeit": "09:00",
+                    "beschreibung": "Test \u00fcber Algebra und Geometrie."
+                },
+                {
+                    "titel": "Hausaufgaben Abgabe",
+                    "datum": "2024-10-25",
+                    "zeit": "15:00",
+                    "beschreibung": "Abgabe der Aufgaben f\u00fcr das Kapitel 5."
+                }
+            ]
+        },
+        {
+            "name": "Biologie 10A",
+            "lehrer": "Frau Schmidt",
+            "termine": [
+                {
+                    "titel": "Biologie-Projektpr\u00e4sentation",
+                    "datum": "2024-10-22",
+                    "zeit": "11:00",
+                    "beschreibung": "Pr\u00e4sentation der Gruppenprojekte."
+                },
+                {
+                    "titel": "Test \u00fcber menschliche Anatomie",
+                    "datum": "2024-10-29",
+                    "zeit": "10:00",
+                    "beschreibung": "Test \u00fcber die menschliche Anatomie."
+                }
+            ]
+        }
+    ]
+}
